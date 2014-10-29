@@ -104,6 +104,7 @@ function getFormData(page) {
 };
 
 function encodeForm(obj) {
+  console.log(obj.form)
   obj.form = encode(obj.form);
   return obj;
 }

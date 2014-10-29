@@ -16,9 +16,9 @@ function fire() {
   .then(getFormData)
   .then(encodeForm)
   .delay(randomDelay(4, 20))
-  //.then(postForm)
+  .then(postForm)
   .then(function(x){ console.log('POSTING FORM ' + i); i++; })
-  //.delay(randomDelay(15, 30))
+  .delay(randomDelay(15, 30))
   .then(fire)
   .fail(function(err) { console.log(err.stack); });
 }

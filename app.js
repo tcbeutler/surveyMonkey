@@ -15,7 +15,7 @@ function run() {
 
   // GET FORM DELAY
   // Set this delay to determine your frequency of voting.
-  setTimeout(run, randomDelay(15, 30));
+  setTimeout(run, randomDelay(30, 60));
 
   Q()
   .then(getSurvey)
@@ -23,7 +23,7 @@ function run() {
   .then(encodeForm)
   //  DELAY TO 'FILL OUT FORM'
   //  This delay represents a user completing a form.
-  .delay(randomDelay(5, 60))
+  .delay(randomDelay(10, 60))
   .then(postForm)
   .then(function(x){ console.log('POSTED FORM ' + myiteration); })
   .fail(function(err) { console.log(err.stack); });

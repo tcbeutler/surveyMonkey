@@ -40,18 +40,16 @@ module.exports = fillKickballForm = function(obj) {
       order = chance.shuffle(allTeams)
     }
     order.push(lastTeam)
-    console.log(order);
     return order;
   }
 
   function assignRanks(teams) {
-    var ranks = {};
     obj[ids[teams[0]]] = rankValues[0];
     obj[ids[teams[1]]] = rankValues[1];
     obj[ids[teams[2]]] = rankValues[2];
     obj[ids[teams[3]]] = rankValues[3];
     obj[ids[teams[4]]] = rankValues[4];
-    return ranks;
+    return teams;
   }
 
   return assignRanks(orderTeams());

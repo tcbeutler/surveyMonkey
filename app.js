@@ -8,21 +8,26 @@ var fillForm = require('./fillKickballForm');
 
 var i = 0;
 
-fire();
+run();
 
-function fire() {
+function run() {
+  var myiteration = ++i;
+
+  // GET FORM DELAY
+  // Set this delay to determine your frequency of voting.
+  setTimeout(run, randomDelay(15, 30));
+
   Q()
   .then(getSurvey)
   .then(getFormData)
   .then(encodeForm)
-  .delay(randomDelay(4, 20))
+  //  DELAY TO 'FILL OUT FORM'
+  //  This delay represents a user completing a form.
+  .delay(randomDelay(5, 60))
   .then(postForm)
-  .then(function(x){ console.log('POSTING FORM ' + i); i++; })
-  .delay(randomDelay(15, 30))
-  .then(fire)
+  .then(function(x){ console.log('POSTED FORM ' + myiteration); })
   .fail(function(err) { console.log(err.stack); });
 }
-
 
 function getSurvey() {
   var deferred = Q.defer();
@@ -58,7 +63,8 @@ function getSurvey() {
 function getFormData(page) {
   var $ = cheerio.load(page);
   var form = {};
-  fillForm(form);
+  var teamOrder = fillForm(form);
+  console.log('FORM %s: %s', i, teamOrder);
 
   form.__EVENTVALIDATION =  $('#__EVENTVALIDATION')[0].attribs.value;
   form.__VIEWSTATE =  '';

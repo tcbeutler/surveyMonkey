@@ -2,10 +2,10 @@ var chance = new require('chance')();
 
 module.exports = fillKickballForm = function(obj) {
 
-  var allTeams = ['BALLTOWN', 'BLUE', 'SAVED', 'PARTY', 'TRIPPIN'];
-  var otherTeams = ['BLUE', 'SAVED', 'PARTY', 'TRIPPIN']
-  var ourTeam = 'BALLTOWN'
-  //var lastTeam = 'TRIPPIN'
+  var allTeams = ['BALLTOWN', 'BLUE', 'SAVED', 'PARTY'];
+  var otherTeams = ['BLUE', 'SAVED', 'PARTY'];
+  var ourTeam = 'BALLTOWN';
+  var lastTeam = 'TRIPPIN';
 
   var rankValues = [
     8220005202,
@@ -39,7 +39,7 @@ module.exports = fillKickballForm = function(obj) {
     } else {
       order = chance.shuffle(allTeams)
     }
-    //order.push(lastTeam)
+    order.push(lastTeam)
     return order;
   }
 

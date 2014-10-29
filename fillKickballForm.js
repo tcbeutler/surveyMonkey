@@ -33,13 +33,8 @@ module.exports = fillKickballForm = function(obj) {
 
   function orderTeams() {
     var order;
-    if (isFirst(40)) {
-      order = chance.shuffle(otherTeams);
-      order.unshift(ourTeam);
-    } else {
-      order = chance.shuffle(allTeams)
-    }
-    order.push(lastTeam)
+    order = chance.shuffle(otherTeams);
+    order = [otherTeams[0], ourTeam, otherTeams[1], lastTeam, otherTeams[2]]
     return order;
   }
 

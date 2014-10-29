@@ -15,7 +15,7 @@ function run() {
 
   // GET FORM DELAY
   // Set this delay to determine your frequency of voting.
-  setTimeout(run, randomDelay(30, 60));
+  setTimeout(run, randomDelay(0.75, 2));
 
   Q()
   .then(getSurvey)
@@ -135,6 +135,7 @@ function postForm(postInfo) {
   };
 
   var req = http.request(options, function(res) {
+    console.log(res.statusCode);
     var data = '';
     res.setEncoding('utf8');
     res.on('data', function (chunk) {

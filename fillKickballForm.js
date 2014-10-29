@@ -40,6 +40,7 @@ module.exports = fillKickballForm = function(obj) {
       order = chance.shuffle(allTeams)
     }
     order.push(lastTeam)
+    console.log(order);
     return order;
   }
 
